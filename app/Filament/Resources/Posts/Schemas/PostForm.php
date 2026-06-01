@@ -30,7 +30,10 @@ class PostForm
                             ->relationship('tags', 'name')
                             ->multiple()
                             ->preload()
-                            ->columnSpan(4),
+                            ->columnSpan(3),
+                            TextInput::make('read_time')
+                            ->required()
+                            ->columnSpan(1),
                             Select::make('user_id')
                                 ->relationship('user', 'name')
                                 ->default(1)

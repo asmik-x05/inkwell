@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->text('body');
             $table->String('image')->nullable();
             $table->string('slug')->unique();
+            $table->string('read_time');
+            $table->integer('views_count')->unsigned()->default(0);
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->boolean('status')->default(false);
