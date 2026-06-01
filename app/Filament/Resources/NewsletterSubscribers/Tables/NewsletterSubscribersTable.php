@@ -1,41 +1,38 @@
 <?php
 
-namespace App\Filament\Resources\Posts\Tables;
+namespace App\Filament\Resources\NewsletterSubscribers\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\ToggleButtons;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
-class PostsTable
+class NewsletterSubscribersTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('title')
+                TextColumn::make('email')
+                    ->label('Email address')
                     ->searchable(),
-                    TextColumn::make('slug')
+                TextColumn::make('name')
                     ->searchable(),
-                    ToggleColumn::make('status'),
-                    ImageColumn::make('image'),
-                    TextColumn::make('read_time')
+                TextColumn::make('status')
+                    ->badge(),
+                TextColumn::make('token')
                     ->searchable(),
-                TextColumn::make('user.name')
-                    ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('meta_title')
-                    ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('meta_description')
-                    ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('source')
+                    ->searchable(),
+                TextColumn::make('subscribed_ip')
+                    ->searchable(),
+                TextColumn::make('confirmed_at')
+                    ->dateTime()
+                    ->sortable(),
+                TextColumn::make('unsubscribed_at')
+                    ->dateTime()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

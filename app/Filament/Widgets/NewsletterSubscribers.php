@@ -2,17 +2,18 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Post;
+use App\Models\NewsletterSubscriber;
 use Filament\Widgets\ChartWidget;
 
-class BlogPostsChart extends ChartWidget
+class NewsletterSubscribers extends ChartWidget
 {
-    protected ?string $heading = 'Blog Posts Chart';
-
-    protected static ?int $sort = 5;
+    protected ?string $heading = 'Newsletter Subscribers';
+    protected static ?int $sort = 4;
+    protected static bool $isLazy = false;
+    protected int|string|array $columnSpan = 'full';
     protected function getData(): array
     {
-        $data = Post::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+        $data = NewsletterSubscriber::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
             ->whereYear('created_at', now()->year)
             ->groupBy('month')
             ->orderBy('month')
@@ -32,6 +33,6 @@ class BlogPostsChart extends ChartWidget
 
     protected function getType(): string
     {
-        return 'bar';
+        return 'line';
     }
 }

@@ -9,7 +9,7 @@ class BlogCommentsChart extends ChartWidget
 {
     protected ?string $heading = 'Blog Comments Chart';
 
-    protected static ?int $sort = 5;
+    protected static ?int $sort = 6;
     protected function getData(): array
     {
         $data = Comment::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
