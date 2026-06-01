@@ -13,24 +13,25 @@ class AdvertiseForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->components(Section::make('Heading')                
+            ->components(Section::make('Add Advertisement')
                 ->schema([
-                TextInput::make('company_name')
-                ->required(),
-                TextInput::make('contact')
-                ->required(),
-                TextInput::make('redirect_link')
-                    ->required(),
-                DatePicker::make('expire_date')
-                    ->required(),
-                FileUpload::make('banner')
-                    ->image()
-                    ->disk('public')
-                    ->directory('posts')
-                    ->imageEditor()
-                    ->columnSpanFull()
-                    ->required(),
-            ])->columnSpanFull()
-                ->columns(2),);
+                    TextInput::make('company_name')
+                        ->required(),
+                    TextInput::make('contact')
+                        ->required(),
+                    TextInput::make('redirect_link')
+                        ->required(),
+                    DatePicker::make('expire_date')
+                        ->required(),
+                    FileUpload::make('banner')
+                        ->image()
+                        ->disk('public')
+                        ->directory('posts')
+                        ->imageEditor()
+                        ->multiple(true)
+                        ->columnSpanFull()
+                        ->required(),
+                ])->columnSpanFull()
+                ->columns(2), );
     }
 }
