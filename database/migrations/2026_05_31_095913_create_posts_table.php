@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->text('body');
             $table->String('image')->nullable();
             $table->string('slug')->unique();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+
             $table->string('read_time');
             $table->integer('views_count')->unsigned()->default(0);
             $table->string('meta_title')->nullable();

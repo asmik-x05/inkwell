@@ -22,7 +22,7 @@ class QuotesResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'quote';
 
-    protected static ?int $navigationSort = 7;
+    protected static ?int $navigationSort = 8;
 
     public static function form(Schema $schema): Schema
     {
