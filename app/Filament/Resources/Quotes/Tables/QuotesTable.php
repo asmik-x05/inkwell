@@ -21,6 +21,8 @@ class QuotesTable
                     ->searchable(),
                 TextColumn::make('tag')
                     ->searchable(),
+                    TextColumn::make('note')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
