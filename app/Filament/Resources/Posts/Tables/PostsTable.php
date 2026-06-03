@@ -21,12 +21,15 @@ class PostsTable
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                    TextColumn::make('slug')
+                TextColumn::make('slug')
                     ->searchable(),
-                    ToggleColumn::make('status'),
-                    ImageColumn::make('image'),
-                    TextColumn::make('read_time')
+                ToggleColumn::make('status'),
+                TextColumn::make('read_time')
                     ->searchable(),
+                TextColumn::make('Category.name')
+                    ->searchable(),
+                ImageColumn::make('image')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('user.name')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),

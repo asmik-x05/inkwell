@@ -22,7 +22,7 @@ class NewsletterSubscriberResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'email';
 
-    protected static ?int $navigationSort = 6;
+    protected static ?int $navigationSort = 7;
 
     public static function form(Schema $schema): Schema
     {

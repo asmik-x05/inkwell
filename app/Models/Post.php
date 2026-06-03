@@ -21,6 +21,7 @@ class Post extends Model
         'status',
         'meta_title',
         'meta_description',
+        'category_id',
     ];
 
     public function user(): BelongsTo
@@ -36,5 +37,9 @@ class Post extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
+    }
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }

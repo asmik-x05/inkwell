@@ -25,7 +25,12 @@ class PostForm
                             ->required()
                             ->columnSpanFull(),
                         TextInput::make('slug')
-                            ->required()->columnSpanFull(),
+                            ->required()->columnSpan(3),
+                            Select::make('category_id')
+                                ->relationship('category', 'name')                                                            
+                                ->searchable()    
+                                ->preload()                            
+                                ->columnSpan(2),
                             Select::make('tags')
                                 ->relationship('tags', 'name')                            
                                 ->preload()
@@ -42,6 +47,7 @@ class PostForm
                             ->columnSpan(1),
                         FileUpload::make('image')
                             ->image()
+                            ->imageEditor()
                             ->columnSpanFull(),
                     ])
                     ->columns(5)
