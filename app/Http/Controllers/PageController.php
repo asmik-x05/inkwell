@@ -10,4 +10,13 @@ class PageController extends Controller
     {
         return view('index');
     }
+    public function category()
+    {
+        return view('categories');
+    }
+
+    public function trending()
+    {
+        return view('trending');
+    }
 }

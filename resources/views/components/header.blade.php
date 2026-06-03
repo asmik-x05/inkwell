@@ -9,9 +9,9 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
             <nav class="gap-6 items-center text-gray-200 text-sm hidden sm:flex">
-                <a href="#" class="">Home</a>
-                <a href="#" class="">Categories</a>
-                <a href="#" class="">Trending</a>
+                <a href="{{ route('home') }}" class="">Home</a>
+                <a href="{{ route('categories') }}" class="">Categories</a>
+                <a href="{{ route('trending') }}" class="">Trending</a>
 
             </nav>
 
@@ -22,7 +22,7 @@
                 {{-- <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
                     <i class="fa-regular fa-bookmark"></i>
                 </a> --}}
-                <a href="#"
+                <a href="{{ route('login') }}"
                     class="text-sm text-gray-300 hover:text-white transition-colors duration-200 px-3 py-1.5">
                     Login
                 </a>
