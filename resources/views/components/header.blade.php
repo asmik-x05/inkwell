@@ -5,23 +5,29 @@
                 <a href="{{ route('home') }}"
                     class="bg-linear-to-br  from-purple-400 via-purple-500 to-indigo-950 bg-clip-text text-transparent">{{ config('app.name') }}</a>
             </h1>
-            <button id="mobile-menu-button" class="text-gray-400 hover:text-white transition-colors duration-200 p-2 sm:hidden">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <nav class="gap-6 items-center text-gray-200 text-sm hidden sm:flex">
-                <a href="{{ route('home') }}" class="">Home</a>
-                <a href="{{ route('categories') }}" class="">Categories</a>
-                <a href="{{ route('trending') }}" class="">Trending</a>
-
-            </nav>
-
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:hidden">
                 <button class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-                {{-- <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
-                    <i class="fa-regular fa-bookmark"></i>
-                </a> --}}
+                <button id="mobile-menu-button"
+                    class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <nav class="gap-6 items-center text-gray-200 text-sm hidden sm:flex">
+                <a href="{{ route('home') }}"
+                    class="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-violet-400 after:transition-all hover:after:w-full">Home</a>
+                <a href="{{ route('categories') }}"
+                    class="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-violet-400 after:transition-all hover:after:w-full">Categories</a>
+                <a href="{{ route('trending') }}"
+                    class="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-violet-400 after:transition-all hover:after:w-full">Trending</a>
+
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-3">
+                <button class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
                 <a href="{{ route('login') }}"
                     class="text-sm text-gray-300 hover:text-white transition-colors duration-200 px-3 py-1.5">
                     Login
@@ -29,5 +35,17 @@
             </div>
         </div>
     </div>
-
+    <div id="mobile-menu" class="hidden sm:hidden border-t border-white/10 bg-gray-950">
+        <nav class="flex flex-col px-6 py-4 gap-4 text-gray-200 text-sm">
+            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ route('categories') }}">Categories</a>
+            <a href="{{ route('trending') }}">Trending</a>
+            <a href="{{ route('login') }}" class="text-gray-400">Login</a>
+        </nav>
+    </div>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </header>

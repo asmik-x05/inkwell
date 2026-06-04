@@ -14,8 +14,9 @@ return new class extends Migration {
             $table->id();
             $table->tinyInteger('day')->unsigned();
             $table->text('quote');
-            $table->string('source')->nullable();
+            $table->string('source');
             $table->string('tag')->nullable();
+            $table->string('note');
             $table->timestamps();
         });
     }

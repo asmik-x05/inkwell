@@ -17,15 +17,17 @@ class QuotesForm
                     ->required()
                     ->numeric()
                     ->columnSpan(1),
-                TextInput::make('source')
-                    ->default(null)
+                TextInput::make('source')                    
                     ->columnSpan(4),
                 TextInput::make('tag')
                     ->default(null)
                     ->columnSpan(5),
                 Textarea::make('quote')
                     ->required()
-                    ->columnSpanFull(),
+                    ->columnSpan(5),
+                    Textarea::make('note')
+                    ->required()
+                    ->columnSpan(5),
             ])->columnSpanFull()->columns(10));
     }
 }

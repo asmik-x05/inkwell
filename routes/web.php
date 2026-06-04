@@ -10,7 +10,8 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/categories', [PageController::class, 'category'])->name('categories');
 
-Route::get('/trending', [PageController::class, 'trending'])->name('trending');
+
+Route::get('/trending', [PageController::class, 'trending'])->name('trending'); 
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');

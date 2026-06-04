@@ -1,5 +1,11 @@
 <x-layout>
-    <div class="h-screen flex justify-center items-center text-gray-100">
-        <h1 class="text-xl">Hello from Trending Page</h1>
+    <div class=" flex justify-center items-center text-gray-100">
     </div>
+    @foreach ($trending as $i => $article)
+        <x-blog-card-full title="{{ $article->title }}" category="{{ $article->category->name }}"
+            date="{{ $article->created_at->format('M j, Y') }}" readTime="{{ $article->read_time }}"
+            link="/{{ $article->slug }}" :i="$i" body="{{ $article->body }}"
+            categorySlug="{{ $article->category->slug }}" />
+    @endforeach
+    {{ $trending->links() }}
 </x-layout>
