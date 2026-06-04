@@ -39,6 +39,8 @@ class PageController extends Controller
 
     public function trending()
     {
-        return view('trending');
+        $trending = Post::where('status', true)->orderBy('views_count', 'desc')->paginate(10);
+
+        return view('trending', compact('trending'));
     }
 }
