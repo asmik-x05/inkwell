@@ -54,4 +54,13 @@ class PageController extends Controller
 
         return view('trending', compact('trending'));
     }
+    public function login()
+    {
+        return view('Auth.login');
+    }
+
+    public function register()
+    {
+        return view('Auth.register');
+    }
 }

@@ -11,6 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="{{ asset('vendor/flasher/flasher.min.js') }}"></script>
 
 </head>
 
@@ -18,8 +19,10 @@
     <x-header />
     <main class="bg-gray-950">
         {{ $slot }}
+        
     </main>
-    <x-footer />
+    <x-footer /> 
+    
 </body>
 
 </html>
