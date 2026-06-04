@@ -45,7 +45,7 @@
         <h4 class="text-xl mb-4">Recent Posts</h4>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
             @foreach ($latest_articles as $i => $article)
-                <x-blog-card title="{{ $article->title }}" category="{{ $article->category->name }}" date="{{ $article->created_at->format('M j, Y') }}" readTime="{{ $article->read_time }}" link="/{{ $article->slug }}" :i="$i" />
+                <x-blog-card title="{{ $article->title }}" category="{{ $article->category->name }}" date="{{ $article->created_at->format('M j, Y') }}" readTime="{{ $article->read_time }}" link="/{{ $article->slug }}" :i="$i" categorySlug="{{ $article->category->slug }}" />
             @endforeach
             
         </div>
@@ -60,7 +60,7 @@
                 <div class="flex items-center gap-2 flex-wrap font-medium">
 
                     @foreach ($categories as $item)
-                        <a href="/{{ $item->slug }}"
+                        <a href="/categories/{{ $item->slug }}"
                             class="hover:bg-gray-400 hover:text-gray-950 px-2 py-1 rounded-xl border mx-2">{{ $item->name }}</a>
                     @endforeach
                 </div>

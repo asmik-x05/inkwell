@@ -4,7 +4,8 @@
     @foreach ($trending as $i => $article)
         <x-blog-card-full title="{{ $article->title }}" category="{{ $article->category->name }}"
             date="{{ $article->created_at->format('M j, Y') }}" readTime="{{ $article->read_time }}"
-            link="/{{ $article->slug }}" :i="$i" body="{{ $article->body }}" />
+            link="/{{ $article->slug }}" :i="$i" body="{{ $article->body }}"
+            categorySlug="{{ $article->category->slug }}" />
     @endforeach
     {{ $trending->links() }}
 </x-layout>

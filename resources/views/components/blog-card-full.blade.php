@@ -1,11 +1,15 @@
-@props(['title', 'category', 'date', 'readTime', 'link', 'i','body'])
+@props(['title', 'category', 'date', 'readTime', 'link', 'i','body', 'categorySlug'])
 <div class="container mx-auto px-16">
     <div
         class="grid gap-4 p-4 border border-gray-600 shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer text-gray-100">
         <span
             class="bg-gray-800 text-xl h-8 w-8 rounded-r-4xl flex justify-center items-center">{{ $i + 1 }}</span>
-        <span class="text-purple-700 px-2 py-1 rounded ">{{ $category }}</span>
-        <h3 class="text-2xl font-bold">  {{ Str::words(html_entity_decode(strip_tags($title)), 13) }}</h3>
+        <a href="/categories/{{ $categorySlug }}">
+            <span class="text-purple-700 px-2 py-1 rounded ">{{ $category }}</span>
+        </a>
+        <a href="{{ $link }}">
+            <h3 class="text-2xl font-bold">  {{ Str::words(html_entity_decode(strip_tags($title)), 13) }}</h3>
+        </a>
         <p class="text-lg text-gray-300">{{ Str::words(strip_tags(html_entity_decode($body)), 20) }}</p>  
 
         <div class="flex gap-4 items-center justify-between text-sm text-gray-500">
