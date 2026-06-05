@@ -33,20 +33,24 @@ class PageController extends Controller
         return view("index", compact('latest_article', 'latest_articles', 'quote', 'total_words'));
     }
     public function category(Request $request)
-{
-    $slugs = $request->query('filter', []);
-    $slugs = is_array($slugs) ? $slugs : [$slugs];
+    {
+        $slugs = $request->query('filter', []);
+        $slugs = is_array($slugs) ? $slugs : [$slugs];
 
-    $articles = Post::where('status', true)
-        ->when(count($slugs), function ($q) use ($slugs) {
-            $q->whereHas('category', fn($q) => $q->whereIn('slug', $slugs));
-        })
-        ->latest()
-        ->paginate(10)
-        ->withQueryString();
+        $articles = Post::where('status', true)
+            ->when(count($slugs), function ($q) use ($slugs) {
+                $q->whereHas('category', fn($q) => $q->whereIn('slug', $slugs));
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
 
-    return view('categories', compact('articles', 'slugs'));
-}
+        return view('categories', compact('articles', 'slugs'));
+    }
+    public function categoryRedirect(string $slug)
+    {
+        return redirect()->route('categories', ['filter' => [$slug]]);
+    }
 
     public function trending()
     {

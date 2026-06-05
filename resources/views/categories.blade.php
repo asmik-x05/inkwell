@@ -20,6 +20,12 @@
                 </a>
             @endforeach
         </div>
+        @if ($articles->isEmpty())
+            <div class="flex flex-col justify-center items-center h-[70vh] text-2xl text-gray-400">
+                <i class="fa-regular fa-rectangle-xmark text-9xl"></i>
+                <p>No articles found for the selected categories.</p>
+            </div>            
+        @endif
         @foreach ($articles as $i => $article)
             <x-blog-card-full title="{{ $article->title }}" category="{{ $article->category->name }}"
                 date="{{ $article->created_at->format('M j, Y') }}" readTime="{{ $article->read_time }}"

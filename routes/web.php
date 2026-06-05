@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SearchController;
 use App\Models\NewsletterSubscriber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/categories', [PageController::class, 'category'])->name('categories');
+
+Route::get('/categories/{slug}', [PageController::class, 'categoryRedirect'])->name('category');
 
 
 Route::get('/trending', [PageController::class, 'trending'])->name('trending');
@@ -28,3 +31,5 @@ Route::post('/subscribe/newsletter', function (Request $req) {
 
     return $subscribe;
 });
+
+Route::get('/search', SearchController::class)->name('search');
