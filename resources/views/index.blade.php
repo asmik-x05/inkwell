@@ -14,7 +14,7 @@
 
                     <span class="text-sm text-gray-400">{{ $latest_article->created_at->format('M j, Y') }} ·
                         {{ $latest_article->read_time }} min read</span>
-                    <a href="/{{ $latest_article->slug }}"
+                    <a href="{{ route('article', $latest_article->slug) }}"
                         class="inline-block bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg">Read
                         <span>-></span></a>
                 </div>
@@ -45,9 +45,11 @@
         <h4 class="text-xl mb-4">Recent Posts</h4>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
             @foreach ($latest_articles as $i => $article)
-                <x-blog-card title="{{ $article->title }}" category="{{ $article->category->name }}" date="{{ $article->created_at->format('M j, Y') }}" readTime="{{ $article->read_time }}" link="/{{ $article->slug }}" :i="$i" categorySlug="{{ $article->category->slug }}" />
+                <x-blog-card title="{{ $article->title }}" category="{{ $article->category->name }}"
+                    date="{{ $article->created_at->format('M j, Y') }}" readTime="{{ $article->read_time }}"
+                    link="{{ $article->slug }}" :i="$i" categorySlug="{{ $article->category->slug }}" />
             @endforeach
-            
+
         </div>
     </section>
 
@@ -56,7 +58,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 ">
             <div class="min-h-40 col-span-2 p-4 text-gray-200">
                 <h4 class="text-xl mb-4">Categories</h4>
-                
+
                 <div class="flex items-center gap-2 flex-wrap font-medium">
 
                     @foreach ($categories as $item)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advertise;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Quotes;
@@ -66,5 +67,18 @@ class PageController extends Controller
     public function register()
     {
         return view('Auth.register');
+    }
+
+    public function article($slug)
+    {
+        $post = Post::where('slug', $slug)->where('status', true)->first();
+        $advertisement = Advertise::where("expire_date", ">=", today())->get()->take(3);
+
+        $post->increment('views_count');
+
+
+        // return $advertisement;
+
+        return view('article', compact('post', 'advertisement'));
     }
 }

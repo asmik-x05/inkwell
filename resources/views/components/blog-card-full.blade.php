@@ -7,7 +7,7 @@
         <a href="/categories/{{ $categorySlug }}">
             <span class="text-purple-700 px-2 py-1 rounded ">{{ $category }}</span>
         </a>
-        <a href="{{ $link }}">
+        <a href="{{ route('article', $link) }}">
             <h3 class="text-2xl font-bold">  {{ Str::words(html_entity_decode(strip_tags($title)), 13) }}</h3>
         </a>
         <p class="text-lg text-gray-300">{{ Str::words(strip_tags(html_entity_decode($body)), 20) }}</p>  
@@ -16,7 +16,7 @@
             <div class="flex items-center gap-4"><p class="text-sm text-gray-500">{{ $date }}</p>
             <p>{{ $readTime }} min read</p></div><span
                 class="text-purple-700 hover:text-gray-100 text-4xl hover:bg-purple-700 h-8 w-8 rounded-full flex items-center justify-center"><a
-                    href="{{ $link }}">-></a></span>
+                    href="{{ route('article', $link) }}">-></a></span>
         </div>
 
     </div>

@@ -23,12 +23,7 @@ class AdvertiseForm
                         ->required(),
                     DatePicker::make('expire_date')
                         ->required(),
-                    FileUpload::make('banner')
-                        ->image()
-                        ->disk('public')
-                        ->directory('posts')
-                        ->imageEditor()
-                        ->multiple(true)
+                    FileUpload::make('banner')                        
                         ->columnSpanFull()
                         ->required(),
                 ])->columnSpanFull()

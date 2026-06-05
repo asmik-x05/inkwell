@@ -33,3 +33,5 @@ Route::post('/subscribe/newsletter', function (Request $req) {
 });
 
 Route::get('/search', SearchController::class)->name('search');
+
+Route::get('/article/{slug}', [PageController::class, 'article'])->name('article');
