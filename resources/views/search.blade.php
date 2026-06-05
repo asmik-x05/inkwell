@@ -7,10 +7,11 @@
                 <p class="text-center">No results were found. Try a different search term.</p>
             </div>
         @else
+        <p class="text-lg text-gray-300 mb-6">Showing {{ $posts->count() }} results for "{{ $q }}"</p>
             @foreach ($posts as $i => $article)
                 <x-blog-card-full title="{{ $article->title }}" category="{{ $article->category->name }}"
                     date="{{ $article->created_at->format('M j, Y') }}" readTime="{{ $article->read_time }}"
-                    link="/{{ $article->slug }}" :i="$i" body="{{ $article->body }}"
+                    link="{{ $article->slug }}" :i="$i" body="{{ $article->body }}"
                     categorySlug="{{ $article->category->slug }}" />
             @endforeach
             {{ $posts->links() }}
