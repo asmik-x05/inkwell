@@ -6,8 +6,7 @@
                     class="bg-linear-to-br  from-purple-400 via-purple-500 to-indigo-950 bg-clip-text text-transparent">{{ config('app.name') }}</a>
             </h1>
             <div class="flex items-center gap-2 sm:hidden">
-                <button id="mobile-menu-button"
-                    class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
+                <button id="mobile-menu-button" class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -22,22 +21,23 @@
             </nav>
 
             <div class="hidden sm:flex items-center gap-3">
-                <button class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
+                <a href="{{ route('search') }}"
+                    class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+                </a>
                 <x-user-profile />
             </div>
         </div>
     </div>
     <div id="mobile-menu" class="hidden sm:hidden border-t border-white/10 bg-gray-950">
         <nav class="flex flex-col px-6 py-4 gap-4 text-gray-200 text-sm">
-            <button class="text-gray-400 hover:text-white transition-colors duration-200 p-2">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+            <a href="{{ route('search') }}">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('categories') }}">Categories</a>
-            <a href="{{ route('trending') }}">Trending</a>                
-            
+            <a href="{{ route('trending') }}">Trending</a>
+
         </nav>
     </div>
     <script>
